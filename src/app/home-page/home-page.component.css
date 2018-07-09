@@ -1,0 +1,25 @@
+:host /deep/ .carousel{
+    height: 400px !important;
+    overflow: hidden;
+}
+:host /deep/ .carousel-indicators{
+    bottom: 0 !important;
+}
+:host /deep/ .carousel-caption{
+    top: 30% !important;
+}
+.footer-list{
+    display: block;
+    list-style: none;
+}
+.footer-list li{
+    display: block;
+    color: #fff;
+    padding: 10px 0;
+}
+.footer-list li a{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-align: left;
+}

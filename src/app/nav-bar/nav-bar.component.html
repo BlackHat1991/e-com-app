@@ -1,0 +1,29 @@
+<div>
+  <nav class="navbar navbar-design">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BlackHat</a>
+      </div>
+      <div class="search-box">
+        <form class="header-form-search" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!userNotLoggedIn"><a (click)="userLogin()" href="#"><span class="glyphicon glyphicon-user"></span>Login & Signup</a></li>
+        <li *ngIf="userNotLoggedIn"><a (click)="userLogOut()" href="#"><span class="glyphicon glyphicon-user"></span>{{userName}}</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div style="padding-top:56px;">
+    <app-header-page></app-header-page>
+  </div>
+</div>
