@@ -6,10 +6,10 @@ import { HomePageComponent } from './home-page/home-page.component'
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: HomePageComponent},
   { path:'login', component:LoginPageComponent},
-  { path: '**', redirectTo: 'login',   }
+  { path: '**', redirectTo: 'dashboard',   }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
