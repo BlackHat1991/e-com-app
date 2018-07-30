@@ -1,4 +1,8 @@
 
+:host /deep/ .dropdown-menu{
+    padding: 0px !important;
+    margin: 0 !important;
+}
 .top-toolbar{
     background: #689f38;
     color: #fff;
@@ -17,7 +21,10 @@
     color: #fff;
     margin-top: 5px;
 }
-
+.logo-part a{
+    color: #fff;
+    text-decoration: none;
+}
 .search-box{
     flex: 1 1 0%;
     box-sizing: border-box;
@@ -89,6 +96,27 @@
     -webkit-box-shadow: none;
     
 }
+
+.sign-details .dropdown-menu li {
+    display: block;
+    text-align: left;
+}
+
+.sign-details .dropdown-menu li a{
+    color: #000 !important;
+    padding: 10px;
+    width: 100%;
+}
+.sign-details .dropdown-menu li a span{
+    color: #2E77EE;
+    font-size: 15px;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+.sign-details .dropdown-menu li :hover{
+    background: #f5f5f5;
+}
+
 /* .mega-dropdown-menu:before {
     content: "";
     border-bottom: 15px solid #fff;

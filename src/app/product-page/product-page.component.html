@@ -1,3 +1,163 @@
-<p>
-  product-page works!
-</p>
+<div class="container-fluid">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-3" style="width:22%;">
+        <div class="outer-box">
+          <div class="outer-box-animate">
+            <ul>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Categories</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Price</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Color</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Size</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Condition</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <h4>Brands</h4>
+                  <span class="expansion-indicator"></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="filter-tab">
+            <div class="sort-dropdown">
+              <div class="dropdown">
+                <button class="dropbtn"> Sort by Default
+                  <span class="caret"></span>
+                </button>
+                <div class="dropdown-content">
+                  <a href="javascript:void(0)">Best Match</a>
+                  <a href="javascript:void(0)">Lowest first</a>
+                  <a href="javascript:void(0)">Latest first</a>
+                </div>
+              </div>
+            </div>
+            <div class="icon-filters">
+              <ul>
+                <li>
+                  <span class="glyphicon glyphicon-th-list"></span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-th"></span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-th-large"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="prod-container" *ngFor="let item of productListArray; let i=index">
+            <div class="prod-inner-container product-item">
+              <a href="javascript:void(0)" class="image-link">
+                  <img alt="Product-Image" src="{{item.imgUrl}}">
+              </a>
+              <h4 class="category text-muted">{{item.category}}</h4>
+              <a class="title text-truncate" href="javascript:void(0)"> {{item.categoryTilte}} </a>
+              <div class="amnt-rate">
+                <div class="amount-details">
+                  <p>{{item.price}}</p>
+                </div>
+                <div class="rating-img">
+                    <a href="javascript:void(0)">
+                      <span class="glyphicon glyphicon-star filted-yellow"></span>
+                      <span class="glyphicon glyphicon-star filted-yellow"></span>
+                      <span class="glyphicon glyphicon-star filted-yellow"></span>
+                      <span class="glyphicon glyphicon-star filted-yellow"></span>
+                      <span class="glyphicon glyphicon-star-empty ywl-clr"></span>
+                    </a>
+                    <p class="rating-count">{{item.ratings}}ratings</p>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="fav-icons">
+                <div class="inner-icons">
+                    <button flow="down" type="button" class="btn btn-md">
+                        <div>
+                          <span tooltip="Add to wishlist" flow="down">
+                             <span class="glyphicon glyphicon-heart fnt-26"></span>
+                          </span>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-md">
+                        <span tooltip="Add to cart" flow="down">
+                          <span class="glyphicon glyphicon-shopping-cart fnt-26"></span>
+                        </span>
+                    </button>
+                    <button type="button" class="btn  btn-md">
+                        <span tooltip="Add to compare" flow="down">
+                            <span class="glyphicon glyphicon-compressed fnt-26"></span>
+                        </span>
+                    </button>
+                    <button type="button" class="btn btn-md">
+                        <span tooltip="Quick view" flow="down">
+                            <span class="glyphicon glyphicon-eye-open fnt-26"></span>
+                        </span>
+                    </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="paging-row">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+                    <span style="margin:0 10px;" aria-hidden="true">&laquo;</span>
+                    <span class="">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)">1</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="javascript:void(0)">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="javascript:void(0)" aria-label="Next">
+                    <span class="">Next</span>
+                    <span style="margin:0 10px;" aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
