@@ -1,0 +1,49 @@
+.footer-list{
+    display: block;
+    list-style: none;
+}
+.footer-list li{
+    display: block;
+    color: #fff;
+    padding: 10px 0;
+}
+.footer-list li a{
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-align: left;
+}
+.footer-box{
+    background: #689f38;
+    color: #fff;
+}
+.subscribe-search-form{
+    height: 50px;
+    padding: 0 16px;
+}
+.subscribe-search-form input[type=text]{
+    border: 0;
+    outline: 0;
+    padding: 0 25px;
+    font-size: 16px;
+}
+.Subscribe-btn{
+    font-size: 16px;
+    padding: 8px 24px;
+    border-radius: 0;
+    background-color: #e0e0e0;
+    color: rgba(0,0,0,.54)!important;
+}
+.footer-links{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li{
+    display: block;
+    margin: 10px 0;
+}
+.footer-links li a{
+    display: block;
+    color: #fff;
+}

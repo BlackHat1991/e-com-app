@@ -8,9 +8,12 @@ import { HeaderPageComponent } from './header-page/header-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { routing } from './app.routing';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { SharedService } from './services/shared-service';
+import { FooterPageComponent } from './footer-page/footer-page.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { ProductPageComponent } from './product-page/product-page.component';
     NavBarComponent,
     HeaderPageComponent,
     LoginPageComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    FooterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

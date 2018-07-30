@@ -7,7 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductPageComponent implements OnInit {
 
-  constructor() { }
+  productListArray:any;
+  constructor() { 
+    this.productListArray=[{
+      'imgUrl':'assets/products/1-medium.png',
+      'category':'Electronics',
+      'categoryTilte':'Keyboard',
+      'price':'₹14,999',
+      'ratings':'2'
+    },
+    {
+      'imgUrl':'assets/products/2-medium.png',
+      'category':'Electronics',
+      'categoryTilte':'Keyboard',
+      'price':'₹5,999',
+      'ratings':'4'
+    },
+    {
+      'imgUrl':'assets/products/3-medium.png',
+      'category':'Electronics',
+      'categoryTilte':'Keyboard',
+      'price':'₹5,999',
+      'ratings':'4'
+    },
+    {
+      'imgUrl':'assets/products/4-medium.png',
+      'category':'Electronics',
+      'categoryTilte':'Keyboard',
+      'price':'₹5,999',
+      'ratings':'4'
+    }];
+  }
 
   ngOnInit() {
   }
