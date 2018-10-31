@@ -13,7 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { SharedService } from './services/shared-service';
 import { FooterPageComponent } from './footer-page/footer-page.component';
-
+import { SideMenuComponent } from './side-menu/side-menu.component';
+import { FilterMenuComponent } from './filter-menu/filter-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DashboardService } from './services/dashboard-service';
+import { HttpClientModule } from '@angular/common/http';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +29,21 @@ import { FooterPageComponent } from './footer-page/footer-page.component';
     HeaderPageComponent,
     LoginPageComponent,
     ProductPageComponent,
-    FooterPageComponent
+    FooterPageComponent,
+    SideMenuComponent,
+    FilterMenuComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+    HttpClientModule
   ],
-  providers: [SharedService],
+  providers: [SharedService,DashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
