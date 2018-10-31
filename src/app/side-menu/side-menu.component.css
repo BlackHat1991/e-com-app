@@ -1,0 +1,118 @@
+.side-menu{
+    width: 200px;
+    position: fixed;
+    height: 100vh;
+    background: red;
+    padding: 10px;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 260px;
+    background: #fff;
+    box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+    transition-property: top,bottom,width;
+    transition-duration: .2s,.2s,.35s;
+    transition-timing-function: linear,linear,ease;
+}
+
+.side-menu .logo {
+    padding: 15px 0;
+    margin: 0;
+    display: block;
+    position: relative;
+    z-index: 4;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    height: 1px;
+    width: calc(100% - 30px);
+    background-color: hsla(0,0%,71%,.3);
+}
+.side-menu .logo .simple-text {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 5px 0;
+    display: inline-block;
+    font-size: 18px;
+    color: #3c4858;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+    text-align: center;
+    display: block;
+}
+.side-menu a {
+    transition: all .15s ease-in;
+}
+
+.sidebar-wrapper{
+    position: relative;
+    height: calc(100vh - 75px);
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    padding-bottom: 30px;
+}
+.nav{
+    margin-top: 20px;
+    display: block;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.sidebar-wrapper li.active>a {
+    background-color: #9c27b0;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4);
+    color: #fff !important;
+}
+.sidebar-wrapper .nav li a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: #3c4858;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 10px 15px;
+    transition: all .15s ease-in;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+}
+nav li.active>a, .sidebar-wrapper .nav li.active>a i {
+    color: #fff;
+}
+.nav p {
+    margin: 0;
+    line-height: 30px;
+    font-size: 14px;
+    position: relative;
+    display: block;
+    height: auto;
+    white-space: nowrap;
+    text-align: left;
+    transition: all .3s linear;
+    font-family: sans-serif;
+
+}
+.nav span{
+    color: #fff;
+}
+.nav li a {
+    margin: 10px 15px 0;
+    border-radius: 3px;
+    color: #3c4858;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 10px 15px;
+    transition: all .3s linear;
+}

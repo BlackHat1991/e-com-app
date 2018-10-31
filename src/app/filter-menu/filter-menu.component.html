@@ -1,0 +1,9 @@
+<div class="side-filters">
+  <h6>ICO FILTERS</h6>
+  <div class="col-lg-10">
+      <p style="text-align:left">Enter Text::</p>
+      <input type="text" [(ngModel)]="searchvalue" class="form-control" id="usr">
+      <button type="button" [disabled]="!searchvalue" (click)="sendBackValue(searchvalue)" class="btn btn-primary" style="margin-top:15px;">Search</button>
+      <button type="button"  (click)="cancelFilter()" class="btn btn-info" style="margin-top:15px;margin-left:5px;">Cancel</button>
+  </div>
+</div>
