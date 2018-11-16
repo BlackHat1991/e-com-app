@@ -7,22 +7,39 @@ import { SharedService } from '../services/shared-service';
   styleUrls: ['./filter-menu.component.css']
 })
 export class FilterMenuComponent implements OnInit {
-  searchvalue:String;
+  searchvaluecoinId:Number;
+  searchvaluename:String;
+  searchvaluecategoryName:String;
   @Output()
   SetDataValue: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService:SharedService) { 
+    
+  }
 
   ngOnInit() {
   }
-  sendBackValue(value){
-    this.searchvalue='';
-    let passJson={"Searchedkey":value}
+  sendBackValue(){
+    let passJson={};
+    if(this.searchvaluecoinId){
+      passJson['coinId']=this.searchvaluecoinId
+    }
+    if(this.searchvaluename){
+      passJson['name']=this.searchvaluename
+    }
+    if(this.searchvaluecategoryName){
+      passJson['categoryName']=this.searchvaluecategoryName
+    }
     this.SetDataValue.emit(passJson);
+    this.searchvaluecoinId=0;
+    this.searchvaluename='';
+    this.searchvaluecategoryName='';
     
   }
   cancelFilter(){
-   this.searchvalue='';
+   this.searchvaluecoinId=0;
+   this.searchvaluename='';
+   this.searchvaluecategoryName='';
    this.sharedService.change("close")
   }
 }

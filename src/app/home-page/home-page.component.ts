@@ -24,7 +24,15 @@ export class HomePageComponent implements OnInit {
   menuState:string = 'out';
   status: boolean = false;
   coinsDeatilsArray:any;
+  temStoreData:any;
   loader:Boolean=true;
+  showtypeMenu:boolean=false;
+  typelevels:Array<Object> = [
+    {name: "Active ICOs"},
+    {name: "Upcoming"},
+    {name: "Ended"}
+];
+selectedLevel = this.typelevels[0]['name'];
   collection = [];
   constructor(private dashboardService:DashboardService, private sharedService:SharedService) {
     this.coinsDeatilsArray=[
@@ -34,27 +42,29 @@ export class HomePageComponent implements OnInit {
         "type":"active"
       },
       {
-        "categoryName":"Market Price",
+        "categoryName":"Status",
         "categoryValue":50,
         "type":"price"
       },
       {
-        "categoryName":"Revenue",
+        "categoryName":"Top Influenc Rate",
         "categoryValue":2450,
         "type":"revenue"
       },
       {
         "categoryName":"Followers",
-        "categoryValue":234,
+        "categoryValue":'2K',
         "type":"social"
       }
     ];
-    this.dashboardService.getCryptocurrencyActiveList().subscribe( data =>{
-      this.loader=false;
-      this.collection=data['data'];
-    })
+    // this.dashboardService.getCryptocurrencyActiveList().subscribe( data =>{
+    //   this.loader=false;
+    //   this.collection=data['data'];
+    // })
+
+   this.temStoreData=[];
+    this.loadInitialData();
     this.sharedService.getEmittedValue().subscribe(data =>{
-      console.log("From Service:: "+data);
       if(data == 'close'){
         this.menuState = 'out';
       }
@@ -63,17 +73,99 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
   }
-
+loadInitialData(){
+  this.loader=true;
+  this.dashboardService.getCryptocurrencyActiveList().subscribe(data =>{
+    this.loader=false;
+    this.collection=data;
+    this.temStoreData=data;
+    this.coinsDeatilsArray[0]["categoryValue"]=this.collection.length;
+    this.coinsDeatilsArray[1]["categoryValue"]="Active";
+    this.coinsDeatilsArray[2]["categoryValue"]=this.getInfluencers();
+  });
+}
   toggleMenu() {
     this.status = !this.status; 
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
-  SetDataValue(event){
-    console.log("event:: "+JSON.stringify(event));
-    if(event){
+  SetDataValue(Obj){
+    console.log("Emiter:: "+JSON.stringify(Obj))
+    if(Object.keys(Obj).length != 0){
       this.menuState = 'out';
+      this.collection=this.temStoreData;
+      this.collection = this.collection.filter(item =>{
+         for(var key in Obj){
+          if(item[key] == undefined || item[key] !=Obj[key]){
+            return false;
+          }
+          return true;
+         }
+      })
+    }else{
+      this.menuState = 'out';
+      this.loadInitialData();
+      this.selectedLevel = this.typelevels[0]['name'];
     }
   }
-
-
+  setKeyfilterVAlue(keyObj){
+    this.collection.sort((a,b) => (a[keyObj] > b[keyObj]) ? 1 : ((b[keyObj] > a[keyObj]) ? -1 : 0));
+  }
+  showSelect(){
+    this.showtypeMenu=!this.showtypeMenu;
+  }
+  selectTypeMenu(selectedMenu){
+    this.selectedLevel = selectedMenu;
+    switch(selectedMenu) {
+      case 'Active ICOs':
+          this.loadInitialData();
+          break;
+      case 'Upcoming':
+          this.loadUpcomingDataList();
+          break;
+      case 'Ended':
+        this.loadEndedDataList();
+      default:
+          this.loadInitialData();
+  }
+    this.showtypeMenu=!this.showtypeMenu;
+  }
+  loadUpcomingDataList(){
+    this.loader=true;
+    this.collection=[];
+    this.temStoreData=[];
+    this.dashboardService.getCryptocurrencyUpcomingList().subscribe(data =>{
+      this.loader=false;
+      this.collection=data;
+      this.temStoreData=data;
+      this.coinsDeatilsArray[0]["categoryValue"]=this.collection.length;
+      this.coinsDeatilsArray[0]["categoryName"]="Upcoming Coins"
+      this.coinsDeatilsArray[1]["categoryValue"]="Upcoming";
+      this.coinsDeatilsArray[2]["categoryValue"]=this.getInfluencers();
+      this.coinsDeatilsArray[3]["categoryValue"]='1K';
+      
+    });
+  }
+  loadEndedDataList(){
+    this.loader=true;
+    this.collection=[];
+    this.temStoreData=[];
+    this.dashboardService.getCryptocurrencyEndedList().subscribe(data =>{
+      this.loader=false;
+      this.collection=data;
+      this.temStoreData=data;
+      this.coinsDeatilsArray[0]["categoryValue"]=this.collection.length;
+      this.coinsDeatilsArray[0]["categoryName"]="Ended Coins"
+      this.coinsDeatilsArray[1]["categoryValue"]="Ended";
+      this.coinsDeatilsArray[2]["categoryValue"]=this.getInfluencers();
+      this.coinsDeatilsArray[3]["categoryValue"]='3K';
+      
+      
+    });
+  }
+  getInfluencers(){
+    this.temStoreData.sort((a,b) => (a.numberOfInfluncerRate > b.numberOfInfluncerRate) ? 1 : ((b.numberOfInfluncerRate > a.numberOfInfluncerRate) ? -1 : 0));
+    let res=this.temStoreData.pop();
+    console.log("Result:: "+JSON.stringify(res.numberOfInfluncerRate))
+    return res.numberOfInfluncerRate;
+  }
 }

@@ -197,3 +197,39 @@
     cursor: default;
     vertical-align: top;
 }
+
+.no-data-found{
+    margin: 0 auto;
+    width: 90%;
+    margin-top:5px !important;
+    text-align: center; 
+}
+.type-design{
+    list-style: none;
+    background: dodgerblue;
+    margin: 0;
+    padding: 0;
+    width: 55%;
+    position: absolute;
+    right: 0;
+    top: 48px;
+}
+.type-design li{
+    display: block;
+    background:#fd9100;
+}
+.type-design li:not(:last-child){
+    border-bottom: 1px solid;
+}
+
+.type-design li a{
+    font-size: 12px;
+    padding: 10px;
+    background: none;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+}
+.type-design li :hover{
+    background:#e53935;
+}

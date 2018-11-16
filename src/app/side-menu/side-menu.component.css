@@ -39,7 +39,7 @@
     text-decoration: none;
     padding: 5px 0;
     display: inline-block;
-    font-size: 18px;
+    font-size: 24px;
     color: #3c4858;
     white-space: nowrap;
     font-weight: 400;
@@ -116,3 +116,4 @@ nav li.active>a, .sidebar-wrapper .nav li.active>a i {
     padding: 10px 15px;
     transition: all .3s linear;
 }
+

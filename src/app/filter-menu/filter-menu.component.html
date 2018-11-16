@@ -1,9 +1,16 @@
 <div class="side-filters">
-  <h6>ICO FILTERS</h6>
+  <h5>ICO FILTERS</h5>
   <div class="col-lg-10">
-      <p style="text-align:left">Enter Text::</p>
-      <input type="text" [(ngModel)]="searchvalue" class="form-control" id="usr">
-      <button type="button" [disabled]="!searchvalue" (click)="sendBackValue(searchvalue)" class="btn btn-primary" style="margin-top:15px;">Search</button>
+      <p style="text-align:left;font-size:12px;">ICO ID :</p>
+      <input type="text" [(ngModel)]="searchvaluecoinId" class="form-control" placeholder="Enter ID" id="id">
+
+      <p style="text-align:left;margin-top:12px;font-size:12px">ICO Name :</p>
+      <input type="text" [(ngModel)]="searchvaluename" class="form-control"  placeholder="Enter Name" id="Name">
+
+      <p style="text-align:left;margin-top:12px;font-size:12px">Category Name :</p>
+      <input type="text" [(ngModel)]="searchvaluecategoryName" class="form-control"  placeholder="Enter Category Name" id="Category">
+
+      <button type="button" (click)="sendBackValue()" class="btn btn-primary" style="margin-top:15px;">Search</button>
       <button type="button"  (click)="cancelFilter()" class="btn btn-info" style="margin-top:15px;margin-left:5px;">Cancel</button>
   </div>
 </div>

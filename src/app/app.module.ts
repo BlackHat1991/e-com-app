@@ -20,6 +20,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardService } from './services/dashboard-service';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { KeyFilterPipe } from './pipe/keyfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
     FooterPageComponent,
     SideMenuComponent,
     FilterMenuComponent,
-    PlaceholderComponent
+    PlaceholderComponent,
+    KeyFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,6 @@ import { map, catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class DashboardService {
-  apiendpoint = 'https://api.coinmarketcap.com/v2/listings/';
   constructor(private  httpClient:  HttpClient) { 
     const httpOptions = {
         headers: new HttpHeaders({
@@ -13,11 +12,25 @@ export class DashboardService {
         })
       };
   }
-     
+
+
+
   getCryptocurrencyActiveList(): Observable<any> {
-    return this.httpClient.get(this.apiendpoint).pipe(
+    return this.httpClient.get("/assets/data/active_Ico.json").pipe(
       map(this.extractData));
   }
+
+  getCryptocurrencyUpcomingList(): Observable<any> {
+    return this.httpClient.get("/assets/data/upcoming_Ico.json").pipe(
+      map(this.extractData));
+  }
+
+
+  getCryptocurrencyEndedList(): Observable<any> {
+    return this.httpClient.get("/assets/data/end_Ico.json").pipe(
+      map(this.extractData));
+  }
+
   private extractData(res: Response) {
     let body = res;
     return body || { };
